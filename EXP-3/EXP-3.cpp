@@ -1,20 +1,14 @@
-#include <iostream>
-#include<vector>
-#include<map>
-using namespace std;
-
-int main() {
-    int n;
-    cin>>n;
-    vector<int> arr(n);
-   map<int,int> freq;
-    for(int i = 0;i<n;i++){
-        cin>>arr[i];
-        freq[arr[i]]++;
+class Solution {
+  public:
+    vector<vector<int>> countFreq(vector<int>& arr) {
+        map<int,int> freq;
+        for (int num : arr) {
+            freq[num]++;
+        }
+        vector<vector<int>> res;
+        for (auto &p : freq) {
+            res.push_back({p.first, p.second});
+        }
+        return res;
     }
-    cout<< "Element"<<" : "<<" Frequency "<<endl;
-    for(auto c: freq){
-        cout<<c.first<<" : "<<c.second<<endl;
-    }
-    return 0;
-}
+};
